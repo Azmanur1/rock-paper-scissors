@@ -1,7 +1,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
-
+let round = 1;
 
 const getComputerChoice = () => {
     const choice = ['rock','paper','scissors'];
@@ -9,9 +9,10 @@ const getComputerChoice = () => {
 }
 
 function playRound(computer,human)
-{
+{   
+    round++;
     if(computer === human){
-        return "Draw!";
+        document.getElementById("roundResult").textContent = "Tie!";
     }
     if(
         (computer === 'rock' && human === 'scissors')||
@@ -19,17 +20,26 @@ function playRound(computer,human)
         (computer === 'scissors' && human === 'paper')
     ){
         computerScore++;
-        return "Computer wins";
+        document.getElementById("roundResult").textContent = "Computer wins!";
     }
     else{
         humanScore++;
-        return "You win";
+       document.getElementById("roundResult").textContent = "You win!";
     }
 }
 
 
 function playGame(humanChoice){
-   
+    if(round >=10 ){
+        if(computerScore > humanScore){
+            alert(`${round} complete, Computer Wins!`);
+        }
+        else{
+            alert(`${round} complete, You Win! Congratulations.`);
+        }
+        
+    }
+
     const computerChoice =  getComputerChoice();
     let result = playRound(computerChoice,humanChoice);
 
@@ -39,6 +49,4 @@ function playGame(humanChoice){
 
 }
 
-// playGame();
-// console.log(test);
 
