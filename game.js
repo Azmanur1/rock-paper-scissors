@@ -1,5 +1,5 @@
 
-let round = 1;
+
 let humanScore = 0;
 let computerScore = 0;
 let test="";
@@ -51,11 +51,11 @@ function playRound(computer,human){
 }
 
 function playGame(){
-    for(let i =0; i<5; i++){
+
      playRound(getComputerChoice(), getHumanChoice());
      document.getElementById("demo").innerHTML = "computer:"+computerScore+"|human:"+humanScore;
-     round++;
-    }
+ 
+    
 
     if(computerScore > humanScore){
         test = "Computer Win! "+"[computer:"+computerScore+"|human:"+humanScore+"]";
