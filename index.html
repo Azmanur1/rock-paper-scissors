@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="button.css">
 </head>
 <body>
-    <!-- <p id="demo"></p> -->
+    <!-- -->
     <div class="score">
-        <h3> Computer Score: | Human Score:</h3>
+        <p id="demo">[Computer:  | Human: ]</p>
     </div>
+
     <div style="padding-top:56px;"></div>
 
     <div class="buttons">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <button id="rock" onclick="playGame('rock')">Rock</button>
+        <button id="paper" onclick="playGame('paper')">Paper</button>
+        <button id="scissors" onclick="playGame('scissors')">Scissors</button>
     </div>
     <script src="game.js"></script>
 </body>

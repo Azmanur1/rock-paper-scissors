@@ -1,73 +1,44 @@
 
-
 let humanScore = 0;
 let computerScore = 0;
-let test="";
+
 
 const getComputerChoice = () => {
     const choice = ['rock','paper','scissors'];
     return choice[Math.floor(Math.random()*3)];
 }
-const getHumanChoice = () =>{
-    const humanChoice = prompt("round"+round+", [computer:"+computerScore+"|human:"+humanScore+"]"+", write your choice: ")
-    return humanChoice.toLowerCase();
-}
 
-
-function playRound(computer,human){
-    if(computer == human){
+function playRound(computer,human)
+{
+    if(computer === human){
+        return "Draw!";
     }
-    if(computer == 'rock' && human == 'paper')
-    {
-        humanScore++;
-    }
-    if(computer == 'paper' && human == 'rock')
-    {
+    if(
+        (computer === 'rock' && human === 'scissors')||
+        (computer === 'paper' && human === 'rock')||
+        (computer === 'scissors' && human === 'paper')
+    ){
         computerScore++;
-    }
-
-    if(computer == 'paper' && human == 'scissors')
-    {
-        humanScore++;
-    }
-    if(computer == 'scissors' && human == 'paper')
-    {
-        computerScore++;
-    }
-
-    if(computer == 'scissors' && human == 'rock')
-    {
-        humanScore++;
-    }  
-    if(computer == 'rock' && human == 'scissors')
-    {
-        computerScore++;
+        return "Computer wins";
     }
     else{
-        return "input error";
+        humanScore++;
+        return "You win";
     }
-    
-    
 }
 
-function playGame(){
 
-     playRound(getComputerChoice(), getHumanChoice());
-     document.getElementById("demo").innerHTML = "computer:"+computerScore+"|human:"+humanScore;
- 
-    
+function playGame(humanChoice){
+   
+    const computerChoice =  getComputerChoice();
+    let result = playRound(computerChoice,humanChoice);
 
-    if(computerScore > humanScore){
-        test = "Computer Win! "+"[computer:"+computerScore+"|human:"+humanScore+"]";
-    }
-    else{
-        test = "You Win! "+"[computer:"+computerScore+"|human:"+humanScore+"]";
-    }
+    let scoreText = `[Computer:${computerScore} | Human: ${humanScore}]` ;
 
-    document.getElementById("demo").innerHTML = test;
+    document.getElementById("demo").textContent = scoreText;
 
 }
 
-playGame();
-console.log(test);
+// playGame();
+// console.log(test);
 

@@ -13,7 +13,7 @@ span{
     font-weight: 900;
 }
 
-.score{
+#score{
     margin:auto;
     padding:20px;
     width:50%;
